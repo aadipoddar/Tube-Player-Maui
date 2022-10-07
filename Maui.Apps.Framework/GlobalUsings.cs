@@ -6,4 +6,5 @@ global using System.Globalization;
 global using Maui.Apps.Framework.Exceptions;
 global using Maui.Apps.Framework.Extensions;
 
+global using CommunityToolkit.Mvvm.ComponentModel;
 global using MonkeyCache;
