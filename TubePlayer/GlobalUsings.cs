@@ -8,10 +8,12 @@ global using TubePlayer.IServices;
 global using TubePlayer.Services;
 global using TubePlayer.Helpers;
 global using TubePlayer.ViewModels.Base;
+global using TubePlayer.Views.Base;
 
 global using Maui.Apps.Framework.MVVM;
 global using Maui.Apps.Framework.UI;
 global using Maui.Apps.Framework.Services;
+global using Maui.Apps.Framework.Exceptions;
 
 global using Microsoft.Maui.LifecycleEvents;
 
