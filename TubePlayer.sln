@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TubePlayer", "TubePlayer\TubePlayer.csproj", "{2C263E6E-C32D-4356-BD40-51A73C46DF73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.Apps.Framework", "Maui.Apps.Framework\Maui.Apps.Framework.csproj", "{8C8886B3-A0E3-470C-9D65-26B3C5964B5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.Apps.Framework", "Maui.Apps.Framework\Maui.Apps.Framework.csproj", "{8C8886B3-A0E3-470C-9D65-26B3C5964B5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
