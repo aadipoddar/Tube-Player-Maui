@@ -1,4 +1,4 @@
-﻿namespace MauiTubePlayer.Helpers;
+﻿namespace TubePlayer.Helpers;
 
 public static class ServiceHelpers
 {

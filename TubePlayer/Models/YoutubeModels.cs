@@ -114,12 +114,7 @@ public class Channel
     [JsonPropertyName("statistics")]
     public Statistics Statistics { get; set; }
 
-    public string SubscribersCount
-    {
-        get => $"{Statistics.SubscriberCount.FormattedNumber()} subscribers";
-    }
-
-
+    // TODO - Subcribers Count
 }
 
 //Video Details related models
@@ -144,26 +139,7 @@ public class YoutubeVideoDetail
     [JsonPropertyName("contentDetails")]
     public ContentDetails ContentDetails { get; set; }
 
-    public string VideoSubtitle
-    {
-        get => $"{Statistics.ViewCount.FormattedNumber()} views | {Snippet.PublishedAt.ToTimeAgo()}";
-    }
-
-    public string LikesCount
-    {
-        get => Statistics.LikeCount.FormattedNumber();
-    }
-
-    public string VideoDuration
-    {
-        get => ContentDetails.Duration.ToTimeSpan().ToReadableString();
-    }
-
-    public string CommentsCount
-    {
-        get => Statistics.CommentCount.FormattedNumber();
-    }
-
+    // TODO - View Count, Likes Count , Video Duration, Comments Count
 }
 
 public class ContentDetails
