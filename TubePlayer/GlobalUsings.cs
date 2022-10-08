@@ -7,3 +7,4 @@ global using TubePlayer.Models;
 global using TubePlayer.IServices;
 
 global using Maui.Apps.Framework.MVVM;
+global using Maui.Apps.Framework.UI;
