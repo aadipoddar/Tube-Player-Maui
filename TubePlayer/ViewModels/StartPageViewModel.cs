@@ -1,23 +1,36 @@
 ﻿namespace TubePlayer.ViewModels;
 
-public class StartPageViewModel : AppViewModelBase
+public partial class StartPageViewModel : AppViewModelBase
 {
+    private string nextToken = string.Empty;
+    private string searchTerm = "iPhone 14";
+
+    [ObservableProperty]
+    private ObservableCollection<YoutubeVideo> youtubeVideos;
+
+
     public StartPageViewModel(IApiService appApiService) : base(appApiService)
     {
         this.Title = "TUBE PLAYER";
     }
 
-   public override async void OnNavigatedTo(object parameters)
+    public override async void OnNavigatedTo(object parameters)
+    {
+        Search();
+    }
+
+    private async void Search()
     {
         SetDataLodingIndicators(true);
 
-        LoadingText = "Hold on, we are Loading";
+        LoadingText = "Hold on while we Search for Youtube Videos ...";
+
+        YoutubeVideos = new();
 
         try
         {
-            await Task.Delay(3000);
-
-            throw new Exception("Exception");
+            // Search for Videos
+            await GetYoutubeVideo();
 
             this.DataLoaded = true;
         }
@@ -37,5 +50,34 @@ public class StartPageViewModel : AppViewModelBase
         {
             SetDataLodingIndicators(false);
         }
+    }
+
+    private async Task GetYoutubeVideo()
+    {
+        //Search the videos
+        var videoSearchResult = await _appApiService.SearchVideos(searchTerm, nextToken);
+
+        nextToken = videoSearchResult.NextPageToken;
+
+        //Get Channel URLs
+        var channelIDs = string.Join(",",
+            videoSearchResult.Items.Select(video => video.Snippet.ChannelId).Distinct());
+
+        var channelSearchResult = await _appApiService.GetChannels(channelIDs);
+
+
+        //Set Channel URL in the Video
+        videoSearchResult.Items.ForEach(video =>
+            video.Snippet.ChannelImageURL = channelSearchResult.Items.Where(channel =>
+                channel.Id == video.Snippet.ChannelId).First().Snippet.Thumbnails.High.Url);
+
+        //Add the Videos for Display
+        YoutubeVideos.AddRange(videoSearchResult.Items);
+    }
+
+    [RelayCommand]
+    private async void OpenSettingPage()
+    {
+        await PageService.DisplayAlert("Settings", "Coming Soon", "Ok");
     }
 }

@@ -1,5 +1,14 @@
 ﻿global using System.Net;
 global using System.Text.Json.Serialization;
+global using System.Collections.ObjectModel;
+
+global using Microsoft.Maui.LifecycleEvents;
+
+global using MonkeyCache;
+global using MonkeyCache.FileStore;
+
+global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Mvvm.ComponentModel;
 
 global using TubePlayer.Views;
 global using TubePlayer.Models;
@@ -14,10 +23,4 @@ global using Maui.Apps.Framework.MVVM;
 global using Maui.Apps.Framework.UI;
 global using Maui.Apps.Framework.Services;
 global using Maui.Apps.Framework.Exceptions;
-
-global using Microsoft.Maui.LifecycleEvents;
-
-global using MonkeyCache;
-global using MonkeyCache.FileStore;
-
-global using CommunityToolkit.Mvvm.Input;
+global using Maui.Apps.Framework.Extensions;
