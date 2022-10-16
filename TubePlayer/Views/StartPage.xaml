@@ -97,6 +97,7 @@
                     x:DataType="models:YoutubeVideo">
 
                     <controls:VideoCell
+                        ParentContext="{Binding BindingContext, Source={x:Reference RootPage}}"
                         HorizontalOptions="Fill"/>
 
                 </DataTemplate>
