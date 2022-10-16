@@ -29,7 +29,8 @@
                 <Image
                     HorizontalOptions="Fill"
                     VerticalOptions="Fill"
-                    Aspect="AspectFill">
+                    Aspect="AspectFill"
+                    HeightRequest="260">
                     <Image.Source>
                         <UriImageSource
                             Uri="{Binding Snippet.Thumbnails.High.Url, Mode=OneWay}"
