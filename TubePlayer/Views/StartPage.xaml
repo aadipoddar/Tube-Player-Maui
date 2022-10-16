@@ -28,7 +28,7 @@
             Margin="16, 4, 16, 0"
             ItemsSource="{Binding YoutubeVideos, Mode=OneWay}"
             RemainingItemsThreshold="1"
-             RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand, Mode=OneWay}">
+            RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand, Mode=OneWay}">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout
@@ -38,9 +38,57 @@
 
             <CollectionView.Header>
                 <ContentView>
-                    <Label
-                        Text="Search box will Appear Here"
-                        Style="{StaticResource RegularLightText16}" />
+
+                    <Border
+                        Padding="12,4"
+                        BackgroundColor="{StaticResource DarkColor}"
+                        Stroke="Transparent"
+                        HorizontalOptions="Fill"
+                        Margin="0,0,0,12"
+                        HeightRequest="40"
+                        StrokeShape="RoundRectangle 8">
+
+                        <Grid
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center"
+                            ColumnDefinitions="*,Auto"
+                            ColumnSpacing="16">
+
+                            <Image
+                                WidthRequest="18"
+                                HeightRequest="18"
+                                Source="icnsearch.png"
+                                Grid.Column="1"
+                                VerticalOptions="Center">
+
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding SearchVideosCommand}"
+                                        CommandParameter="{Binding Path=Text, Source={x:Reference txtSearchQuery}, Mode=OneWay}" />
+
+                                </Image.GestureRecognizers>
+
+                            </Image>
+
+                            <Entry
+                                x:Name="txtSearchQuery"
+                                Placeholder="Search..."
+                                PlaceholderColor="{StaticResource LightColor}"
+                                Grid.Column="0"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="Transparent"
+                                FontFamily="RegularFont"
+                                FontSize="16"
+                                TextColor="{StaticResource LightTextColor}"
+                                VerticalTextAlignment="Center"
+                                Completed="txtSearchQuery_Completed"
+                                />
+
+                        </Grid>
+
+                    </Border>
+
                 </ContentView>
             </CollectionView.Header>
 

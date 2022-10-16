@@ -19,10 +19,10 @@ public partial class StartPageViewModel : AppViewModelBase
 
     public override async void OnNavigatedTo(object parameters)
     {
-        Search();
+        await Search();
     }
 
-    private async void Search()
+    private async Task Search()
     {
         SetDataLodingIndicators(true);
 
@@ -94,5 +94,14 @@ public partial class StartPageViewModel : AppViewModelBase
         await Task.Delay(2000);
         await GetYouTubeVideos();
         IsLoadingMore = false;
+    }
+
+    [RelayCommand]
+    private async Task SearchVideos(string searchQuery)
+    {
+        nextToken = string.Empty;
+        searchTerm = searchQuery.Trim();
+
+        await Search();
     }
 }

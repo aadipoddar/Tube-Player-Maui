@@ -15,6 +15,11 @@ public partial class StartPage : ViewBase<StartPageViewModel>
         set => SetValue(ItemsHeightProperty, value);
     }
 
+    public StartPage()
+	{
+		InitializeComponent();
+	}
+
     protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
@@ -22,8 +27,8 @@ public partial class StartPage : ViewBase<StartPageViewModel>
         ItemsHeight = 60d + (width - lstVideos.Margin.Right - lstVideos.Margin.Left) / 1.8d;
     }
 
-    public StartPage()
-	{
-		InitializeComponent();
-	}
+    async void txtSearchQuery_Completed(object sender, EventArgs e)
+    {
+        ViewModel.SearchVideosCommand.Execute(txtSearchQuery.Text);
+    }
 }
