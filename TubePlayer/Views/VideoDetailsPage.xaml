@@ -23,7 +23,7 @@
             IsVisible="{Binding DataLoaded, Mode=OneWay}"
             IgnoreSafeArea="True">
 
-            <!-- Top are aith Poster -->
+            <!-- Top area aith Poster -->
             <Frame
                 HasShadow="True"
                 CornerRadius="8"
@@ -32,6 +32,7 @@
                 IsClippedToBounds="True"
                 Padding="0"
                 Grid.Row="0"
+                Opacity="0"
                 x:Name="HeaderView">
 
                 <Grid
@@ -78,6 +79,7 @@
                 x:Name="VideoTitle"
                 Grid.Row="1"
                 HorizontalOptions="Fill"
+                Opacity="0"
                 Spacing="2">
 
                 <Label
@@ -90,7 +92,7 @@
 
             </VerticalStackLayout>
 
-
+            
 
         </Grid>
 
