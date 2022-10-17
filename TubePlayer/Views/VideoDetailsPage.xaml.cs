@@ -74,4 +74,7 @@ public partial class VideoDetailsPage : ViewBase<VideoDetailsPageViewModel>
             });
 
     }
+
+    async void btnComments_Clicked(object sender, EventArgs e) =>
+        await CommentsBottomSheet.OpenBottomSheet();
 }
