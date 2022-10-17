@@ -1,8 +1,8 @@
 namespace TubePlayer.Views;
 
-public partial class VideoDetailsPage : ContentPage
+public partial class VideoDetailsPage : ViewBase<VideoDetailsPageViewModel>
 {
-	public VideoDetailsPage(string videoID)
+    public VideoDetailsPage(object initParams) : base(initParams)
     {
 		InitializeComponent();
 	}
