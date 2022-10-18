@@ -4,7 +4,7 @@ public partial class VideoDetailsPage : ViewBase<VideoDetailsPageViewModel>
 {
     public VideoDetailsPage(object initParams) : base(initParams)
     {
-		InitializeComponent();
+        InitializeComponent();
 
         this.ViewModelInitialized += (s, e) =>
         {
@@ -15,6 +15,12 @@ public partial class VideoDetailsPage : ViewBase<VideoDetailsPageViewModel>
     protected override void OnDisappearing()
     {
         (this.BindingContext as VideoDetailsPageViewModel).DownloadCompleted -= VideoDetailsPage_DownloadCompleted;
+
+        try
+        {
+            VideoPlayer.Stop();
+        }
+        catch { }
 
         base.OnDisappearing();
     }
@@ -77,4 +83,10 @@ public partial class VideoDetailsPage : ViewBase<VideoDetailsPageViewModel>
 
     async void btnComments_Clicked(object sender, EventArgs e) =>
         await CommentsBottomSheet.OpenBottomSheet();
+
+    private void VideoPlayerButton_Clicked(object sender, EventArgs e)
+    {
+        VideoPlayer.IsVisible = true;
+        VideoPlayer.Play();
+    }
 }
